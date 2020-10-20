@@ -29,7 +29,6 @@ export class PickAdressPage {
     if (localUser && localUser.email) {
       this.clienteService.findByEmail(localUser.email)
         .subscribe(response => {
-          console.log('response', response);
           this.items = response['adress'];
           let cart = this.cartService.getCart();
 
