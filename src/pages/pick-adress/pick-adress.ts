@@ -34,9 +34,9 @@ export class PickAdressPage {
 
             this.pedido = {
               client: { id: response['id'] },
-              enderecoDeEntrega: null,
-              pagamento: null,
-              itens: cart.items.map(x => {return {quantity: x.quantidade, product: {id: x.produto.id}}})
+              deliveryAdress: null,
+              payment: null,
+              orderItens: cart.items.map(x => {return {quantity: x.quantidade, product: {id: x.produto.id}}})
           }
         },
           error => {
@@ -51,7 +51,7 @@ export class PickAdressPage {
   }
 
   nextPage(item: EnderecoDTO) {
-    this.pedido.enderecoDeEntrega = {id: item.id};
+    this.pedido.deliveryAdress = {id: item.id};
     this.navCtrl.push('PaymentPage', {pedido: this.pedido});
   }
 }
